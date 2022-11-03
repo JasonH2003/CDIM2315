@@ -1,0 +1,61 @@
+﻿namespace Hw9;
+class Student{
+    private int studentID{get; set;}
+    private string studentName{get; set;}
+    public void PrintInfo(){
+        Console.WriteLine($"Student ID: {studentID}, Student Name: {studentName}");
+    }
+    public static List<Student> student_list = new List<Student>();
+    public Student(int input_ID, string input_name){
+        studentID = input_ID;
+        studentName = input_name;
+        student_list.Add(this);
+    }
+
+    
+}
+
+class Program{
+    static void  Main(string[]args)
+    {
+    Student Alice = new Student(111,"Alice");
+    Student Bob = new Student(222, "Bob");
+    Student Cathy = new Student(333, "Cathy");
+
+    Dictionary<double, string> gradebook = new Dictionary<double, string>();
+        gradebook.Add( 4.0, "Alice");
+        gradebook.Add( 3.6, "Bob" );
+        gradebook.Add( 2.5, "Cathy");
+        gradebook.Add( 1.8, "David");
+
+    
+    
+    //Add Tom
+    if(gradebook.ContainsValue( "Tom" )){
+    Console.WriteLine("Hi toms here");
+    }
+    else{
+        gradebook.Add( 3.3, "Tom");
+    }
+  
+  //find Average
+   double Sum = 0;
+    foreach(var stu in gradebook){
+       Sum = Sum + stu.Key;
+    }
+    double avg = Sum / gradebook.Count;
+    Console.WriteLine($" the average GPA is: {avg}");
+    
+    
+    //Print student info for those greater than the avg
+    int num = 0;
+    foreach(var x in gradebook){
+        if(x.Key > avg&& num<2){
+            Student.student_list[num ].PrintInfo();
+            num++;
+            }
+            
+    }
+    }}
+
+    
