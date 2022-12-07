@@ -1,7 +1,5 @@
 ﻿namespace Final_Project;
-using System;
-using System.Linq;
-using System.Collections.Generic;
+
 class Program
 {
     
@@ -119,7 +117,7 @@ class Program
         int drink_index = 0;
         foreach(var item in dict_drink){
             Console.WriteLine($"{drink_index} - {item.Key} - {item.Value}");
-            entree_index++;
+            drink_index++;
         }
         //select drinks
         Console.WriteLine("-->Select Drink: ");
@@ -141,7 +139,7 @@ class Program
         int side_index = 0;
         foreach(var item in dict_side){
             Console.WriteLine($"{side_index} - {item.Key} - {item.Value}");
-            entree_index++;
+            side_index++;
         }
         //select side
         Console.WriteLine("-->Select Side: ");
